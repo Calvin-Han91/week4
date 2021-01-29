@@ -19,6 +19,49 @@ async function pageLoaded() {
   // writes the returned JSON to the console
   console.log(json)
   
+  // 1. get the data you are working with
+  let products = json.products
+  // console.log(products)
+
+  let renderProduct = function(product) {
+    return `
+     <div class="p-4 w-full md:w-1/2 lg:w-1/3">
+        <div class="border h-full p-4 flex flex-col">
+          <h2 class="text-lg font-bold mb-4">${product.name}</h2>
+          <div class="mb-4"><img src="${product.image}">
+          </div>
+          <div class="mb-4 text-gray-900">
+            ${product.description}
+          </div>
+          <div class="mt-auto text-purple-500 text-2xl">$${product.price}</div>
+        </div>
+      </div>`
+  }
+
+  // 2. write code to loop through the products
+  for (let i = 0; i < products.length; i++) {
+    let product = products[i]
+    // console.log(product)
+ 
+
+  // 3. render each product
+
+  let outputElement = document.querySelector('.products')
+  // console.log(outputElement)
+
+  // 4. append
+
+  // Ctrl + V the hardcoded format
+
+  outputElement.insertAdjacentHTML('beforeend', renderProduct(product))
+  
+  // 5. extract to separate renderProduct
+
+  // begin at the top
+  
+  
+  }
+
   // 🔥 start here: write code to loop through the products; each
   // iteration of the loop should call your renderProduct function
   // make it work first; then extract to the separate renderProduct

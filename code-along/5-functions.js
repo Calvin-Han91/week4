@@ -20,7 +20,32 @@ let quotes = [
 // Element.insertAdjacentHTML(position, text)
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
 
-window.addEventListener('DOMContentLoaded', function() {
+// window.addEventListener('DOMContentLoaded', function() {
+  
+//   // 1a. loop through the movie qotes
+
+//   for (let i = 0; i < quotes.length; i++) {
+//   // console.log(`hey, index is; ${i}`)
+//   let quote = quotes[i]
+  
+//   // 1b. write them to the output (with Tailwind)
+  
+//   let outputElement = document.querySelector('.output')
+//   outputElement.insertAdjacentHTML('beforeend', `<h1 class="font-bold my-8 text-xl text-blue-300">${quote}</h1>`)
+//   }
+
+// })
+
+function appendQuote(quote) {
   let outputElement = document.querySelector('.output')
-  outputElement.insertAdjacentHTML('beforeend', 'Hello!')
-})
+  outputElement.insertAdjacentHTML('beforeend', `<h1 class="font-bold my-8 text-xl text-blue-300">${quote}</h1>`)
+}
+
+function pageLoaded() {
+  for (let i = 0; i < quotes.length; i++) {
+    let quote = quotes[i]
+    appendQuote(quote)
+  }
+}
+
+window.addEventListener('DOMContentLoaded', pageLoaded)
